@@ -26,3 +26,19 @@ body {
     transition: none;
   }
 }
+
+.board {
+  max-width: 540px;
+  border: 1px solid blue;
+}
+
+.row {
+  border: 1px solid red;
+}
+
+.item {
+  width: 100px;
+  height: 80px;
+  background-color: var(--green-color);
+  color: var(--primary-bg-color);
+}
