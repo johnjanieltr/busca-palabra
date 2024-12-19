@@ -1,25 +1,36 @@
 import words from "./words.js";
 
 let wordLengthMode = 5;
-let currentRow = 0;
+let currentRow = -1;
 let currentItem = 0;
+let regExp = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]$/;
 
+// EVENTS
 document.addEventListener("DOMContentLoaded", () => {
   printRow();
 });
 
 document.addEventListener("keyup", (e) => {
-  // delete last
+  // detect if the key pressed is valid (returns if not valid)
+  if (e.key != "Backspace") {
+    if (!regExp.test(e.key)) {
+      return;
+    }
+  }
+
   const row = document.getElementById(`row-${currentRow}`);
 
+  // delete the last letter pressed
   if (e.key === "Backspace"){
-    console.log("back");
+    row.children[currentItem - 1].textContent = "";
+    currentItem--;
     return;
   }
-  // full row
-  if (currentItem === wordLengthMode) {
+
+  // full row (print a new row)
+  if (currentItem === wordLengthMode - 1) {
     row.children[currentItem].textContent = e.key;
-    console.log("done");
+    printRow();
     return;
   }
 
@@ -35,11 +46,15 @@ const randomWord = () => {
 };
 
 const printRow = () => {
+  if (currentRow >= 5) return console.log("Game end");
+
+  currentItem = 0;
   currentRow++;
+
   const $board = document.getElementById("board");
   const container = document.createElement("div");
   container.classList.add("row", "gap-2");
-  container.id = "row-1";
+  container.id = `row-${currentRow}`;
 
   for (let i = 0; i < wordLengthMode; i++) {
     container.insertAdjacentHTML("beforeend",
