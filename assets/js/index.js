@@ -5,8 +5,20 @@ let wordLengthMode = 5;
 let currentRow = -1;
 let currentItem = 0;
 
+const ssOptionsContainer = document.getElementById("ss-options-container");
+
 document.addEventListener("DOMContentLoaded", () => {
-  printRow();
+  // printRow();
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.matches("#btn-play")) {
+    document.getElementById("header").classList.remove("header--center");
+    ssOptionsContainer.classList.add("opacity-0");
+    setTimeout(() => {
+      ssOptionsContainer.classList.add("d-none");
+    }, 500);
+  }
 });
 
 document.addEventListener("keyup", (e) => {
