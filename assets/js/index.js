@@ -1,27 +1,34 @@
-import printRow from "./printRow.js";
+import printBoardContent from "./printBoardContent.js";
 import validateKeyPressed from "./validateKeyPressed.js";
 
-let wordLengthMode = 5;
-let currentRow = -1;
+let currentRow = 0;
 let currentItem = 0;
+let gameIsRunnning = false;
 
-const ssOptionsContainer = document.getElementById("ss-options-container");
+const menuContainer = document.getElementById("menu-container");
+const boardContainer = document.getElementById("board-container");
 
-document.addEventListener("DOMContentLoaded", () => {
-  // printRow();
-});
+document.addEventListener("DOMContentLoaded", printBoardContent);
 
 document.addEventListener("click", (e) => {
   if (e.target.matches("#btn-play")) {
+    if (gameIsRunnning) return;
+
     document.getElementById("header").classList.remove("header--center");
-    ssOptionsContainer.classList.add("opacity-0");
+    menuContainer.classList.add("opacity-0");
+    boardContainer.classList.remove("d-none");
+
+    setTimeout(() => boardContainer.classList.remove("opacity-0"), 0);
     setTimeout(() => {
-      ssOptionsContainer.classList.add("d-none");
+      menuContainer.classList.add("d-none");
+      gameIsRunnning = true;
     }, 500);
   }
 });
 
 document.addEventListener("keyup", (e) => {
+  if (!gameIsRunnning) return;
+  if (currentRow === 5) return;
   // detect if the key pressed is valid (returns if not valid)
   if (!validateKeyPressed(e.key)) return;
 
@@ -29,15 +36,17 @@ document.addEventListener("keyup", (e) => {
 
   // delete the last letter pressed
   if (e.key === "Backspace") {
+    if (currentItem === 0) return;
     row.children[currentItem - 1].textContent = "";
     currentItem--;
     return;
   }
 
-  // full row (print a new row)
-  if (currentItem === wordLengthMode - 1) {
+  // full row
+  if (currentItem === 4) {
     row.children[currentItem].textContent = e.key;
-    printRow();
+    currentRow++; // jump to next row
+    currentItem = 0; // reset item identificator
     return;
   }
 
