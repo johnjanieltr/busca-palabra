@@ -1,5 +1,5 @@
 :root {
-  --primary-bg-color: rgb(210, 210, 210);
+  --primary-bg-color: #fafafa;
   --primary-text-color: #181818;
   --title-font-family: "Meow Script", serif;
   --primary-font-family: Helvetica, Arial, sans-serif;
@@ -74,8 +74,12 @@ body {
 .item {
   width: 70px;
   height: 70px;
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
   color: var(--primary-text-color);
-  border: 1px solid var(--primary-text-color);
+  border: 1px solid var(--gray-color);
+  border-radius: 0.5rem;
   background-color: var(--primary-bg-color);
   transition: background-color 250ms;
 }
@@ -101,10 +105,13 @@ body {
 
 .bg-green {
   background-color: var(--green-color);
+  color: white;
 }
 .bg-yellow {
   background-color: var(--yellow-color);
+  color: white;
 }
 .bg-gray {
   background-color: var(--gray-color);
+  color: white;
 }
