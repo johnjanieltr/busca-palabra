@@ -69,6 +69,8 @@ document.addEventListener("keyup", (e) => {
   }
 
   row.children[currentItem].textContent = e.key;
+  row.children[currentItem].classList.add("bounce");
+  setTimeout(() => row.children[currentItem - 1].classList.remove("bounce"), 250); // remove bounce animation
   currentItem++;
 });
 
