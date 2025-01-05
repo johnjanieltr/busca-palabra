@@ -62,8 +62,30 @@ body {
   text-align: center;
 
 }
-#btn-play {
-  margin-top: 0.5rem;
+
+.board-container {
+  text-align: center;
+  transition: all 3s;
+}
+.board {
+  text-align: center;
+  max-width: 540px;
+}
+.item {
+  width: 70px;
+  height: 70px;
+  color: var(--primary-text-color);
+  border: 1px solid var(--primary-text-color);
+  background-color: var(--primary-bg-color);
+  transition: background-color 250ms;
+}
+
+.result {
+  transition: opacity 2000ms;
+}
+
+.btn-play {
+  margin-top: 0.75rem;
   padding: 0.5rem 3rem;
   color: var(--primary-bg-color);
   background-color: var(--primary-text-color);
@@ -73,22 +95,16 @@ body {
   user-select: none;
   transition: transform 500ms;
 }
-#btn-play:hover {
+.btn-play:hover {
   transform: scale(1.025);
 }
 
-.board {
-  text-align: center;
-  max-width: 540px;
+.bg-green {
+  background-color: var(--green-color);
 }
-
-.board-container {
-  transition: all 3s;
+.bg-yellow {
+  background-color: var(--yellow-color);
 }
-
-.item {
-  width: 70px;
-  height: 70px;
-  color: var(--primary-text-color);
-  border: 1px solid var(--primary-text-color);
+.bg-gray {
+  background-color: var(--gray-color);
 }

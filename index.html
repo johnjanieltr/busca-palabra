@@ -20,12 +20,16 @@
     <div class="menu-container" id="menu-container">
       <div class="menu">
         <p class="h4">6 oportunidades para adivinar una palabra de 5 letras.</p>
-        <button type="button" id="btn-play">Jugar</button>
+        <button type="button" class="btn-play" id="btn-play">Jugar</button>
       </div>
     </div>
     <!-- game -->
     <main class="board-container mt-3 opacity-0 d-none" id="board-container">
       <div class="board d-flex flex-column gap-2 mx-auto" id="board">
+      </div>
+      <div class="result mt-4 d-none opacity-0" id="result">
+        <h2 class="result-msg" id="result-msg">¡Ganaste!</h2>
+        <button type="button" class="btn-play" id="btn-play-again">Jugar de nuevo</button>
       </div>
     </main>
     <script

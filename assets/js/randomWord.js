@@ -4,6 +4,7 @@ import words from "./words.js";
 const randomWord = () => {
   let randomNumber = Math.round(Math.random() * words.length);
   if (!randomNumber) console.log("Ah ocurrido un error");
+  console.log(`The word is ${words[randomNumber]}`);
   return words[randomNumber];
 };
 

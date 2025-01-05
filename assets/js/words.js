@@ -17,7 +17,9 @@ const words = [
   "barco", "resto", "cerro", "marca", "techo",
   "plomo", "grano", "clima", "crudo", "venta",
   "globo", "broma", "carta", "rumbo", "tonto",
-  "sordo", "corte", "costa", "ciego"
+  "sordo", "corte", "costa", "ciego", "arbol",
+  "avion", "rezar", "cerdo", "limon", "remar",
+  "mosca", "timon", "corto"
 ];
 
 export default words;
